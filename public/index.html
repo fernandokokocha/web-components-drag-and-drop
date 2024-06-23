@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .kanban-board {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .kanban-column {
+      background-color: #fff;
+      border-radius: 4px;
+      width: 30%;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .kanban-column.dropzone {
+      background-color: #0f0;
+    }
+
+    .column-header {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+  <script src="kanban-column.js" defer></script>
+  <script src="kanban-card.js" defer></script>
+</head>
+
+<body>
+  <div class="kanban-board">
+    <div class="kanban-column" ondragover="onDragOver(event);" ondrop="onDrop(event);" data-status="to-do">
+      <div class="column-header">To Do</div>
+      <kanban-card id="kanban-card-1" data-title="Task 1" draggable="true"></kanban-card>
+      <kanban-card id="kanban-card-2" data-title="Task 2" draggable="true"></kanban-card>
+      <kanban-card id="kanban-card-3" data-title="Task 3" draggable="true"></kanban-card>
+    </div>
+    <div class="kanban-column" ondragover="onDragOver(event);" ondrop="onDrop(event);" data-status="doing">
+      <div class="column-header">Doing</div>
+      <kanban-card id="kanban-card-4" data-title="Task 4" draggable="true"></kanban-card>
+      <kanban-card id="kanban-card-5" data-title="Task 5" draggable="true"></kanban-card>
+    </div>
+    <div class="kanban-column" ondragover="onDragOver(event);" ondrop="onDrop(event);" data-status="done">
+      <div class="column-header">Done</div>
+    </div>
+  </div>
+</body>
+
+</html>
